@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strong PasswordS</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="background">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+    </div>
+
+    <main class="password-card">
+
+        <div class="card-header-wrap">
+            <div class="card-header">
+                <div class="lock-icon">
+                    <i class="ri-shield-keyhole-line"></i>
+                </div>
+                <div class="card-title">
+                    <h1>Create Strong Password</h1>
+                    <p>Generate a strong password to keep your accounts secure.</p>
+                </div>
+            </div>
+
+            <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light theme">
+                <span class="toggle-track">
+                    <span class="toggle-thumb">
+                        <i class="ri-moon-line"></i>
+                    </span>
+                </span>
+            </button>
+        </div>
+
+        <div class="input-box">
+            <input type="password" id="inp" autocomplete="new-password" required>
+            <label for="inp">Your Password</label>
+            <button type="button" id="eye-btn">
+                <i class="ri-eye-line"></i>
+            </button>
+        </div>
+
+        <div class="password-status">
+            <div class="status-top">
+                <div>
+                    <span>Password Strength</span>
+                    <strong id="strength-status">Weak</strong>
+                </div>
+
+                <span id="strength-icon">
+                    <i class="ri-shield-line"></i>
+                </span>
+            </div>
+
+            <div class="range">
+                <div class="range-status"></div>
+            </div>
+        </div>
+
+        <div class="requirements">
+            <div class="requirements-title">
+                <span>Password Requirements</span>
+                <i class="ri-information-line"></i>
+            </div>
+            <div class="requirement-list">
+                <div class="requirement" id="chars">
+                    <span class="check">
+                        <i class="ri-check-line"></i>
+                    </span>
+                    <span>At least 8 characters</span>
+                </div>
+
+                <div class="requirement" id="A-Z">
+                    <span class="check">
+                        <i class="ri-check-line"></i>
+                    </span>
+                    <span>One uppercase letter (A-Z)</span>
+                </div>
+
+                <div class="requirement" id="a-z">
+                    <span class="check">
+                        <i class="ri-check-line"></i>
+                    </span>
+                    <span>One lowercase letter (a-z)</span>
+                </div>
+
+                <div class="requirement" id="numbers">
+                    <span class="check">
+                        <i class="ri-check-line"></i>
+                    </span>
+                    <span>At least one number</span>
+                </div>
+
+                <div class="requirement" id="special">
+                    <span class="check">
+                        <i class="ri-check-line"></i>
+                    </span>
+                    <span>At least one special character</span>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+</body>
+<script src="script.js"></script>
+</html>
