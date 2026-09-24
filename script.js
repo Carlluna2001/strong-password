@@ -30,31 +30,53 @@ const updateRequirements = (value) => {
   });
 
   const score = checks.filter(({ valid }) => valid).length;
+  const hasUpper = /[A-Z]/.test(value);
+  const hasLower = /[a-z]/.test(value);
+  const hasNumber = /\d/.test(value);
+  const hasSpecial = /[^A-Za-z0-9]/.test(value);
+
   let label = 'Weak';
   let color = '#ef4444';
   let iconClass = 'ri-shield-line';
   let width = 20;
 
-  if (score === 5) {
+  if (value.length < 4) {
+    label = 'Weak';
+    color = '#ef4444';
+    iconClass = 'ri-shield-line';
+    width = 20;
+  } else if (value.length < 8) {
+    if (score >= 2 || (hasUpper && hasLower)) {
+      label = 'Fair';
+      color = '#f97316';
+      iconClass = 'ri-shield-star-line';
+      width = 40;
+    }
+  } else if (value.length >= 14 && score >= 5) {
+    label = 'Strongest';
+    color = '#10b981';
+    iconClass = 'ri-shield-star-fill';
+    width = 100;
+  } else if (value.length >= 12 && score >= 4) {
     label = 'Strong';
     color = '#22c55e';
     iconClass = 'ri-shield-check-fill';
-    width = 100;
+    width = 80;
   } else if (score >= 4) {
     label = 'Good';
     color = '#3b82f6';
     iconClass = 'ri-shield-check-line';
-    width = 80;
+    width = 60;
   } else if (score >= 3) {
-    label = 'Medium';
+    label = 'Fair';
     color = '#f59e0b';
     iconClass = 'ri-shield-flash-line';
-    width = 60;
+    width = 45;
   } else if (score >= 2) {
     label = 'Fair';
     color = '#f97316';
     iconClass = 'ri-shield-star-line';
-    width = 40;
+    width = 35;
   }
 
   strengthStatus.textContent = label;
